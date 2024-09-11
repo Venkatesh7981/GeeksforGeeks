@@ -32,7 +32,6 @@ class Solution {
     int missingNumber(int n, int arr[]) {
 
         // Your Code Here
-       // int num;
         int xorAll=0;
         int xorArray=0;
         for (int i = 1; i <= n; i++) {
