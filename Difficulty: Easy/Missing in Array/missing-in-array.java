@@ -32,15 +32,22 @@ class Solution {
     int missingNumber(int n, int arr[]) {
 
         // Your Code Here
-        int xorAll=0;
-        int xorArray=0;
-        for (int i = 1; i <= n; i++) {
-            xorAll ^= i;
-        }
+        // int xorAll=0;
+        // int xorArray=0;
+        // for (int i = 1; i <= n; i++) {
+        //     xorAll ^= i;
+        // }
 
-        // XOR all elements in the array
-        for (int num: arr) 
-            xorArray ^= num;
-        return xorArray^xorAll;
+        // // XOR all elements in the array
+        // for (int num: arr) 
+        //     xorArray ^= num;
+        // return xorArray^xorAll;
+    
+        int sum=n*(n+1)/2;
+        int asum=0;
+        for(int i=0;i<n-1;i++){
+            asum+=arr[i];
+        }
+        return sum-asum;
     }
 }
