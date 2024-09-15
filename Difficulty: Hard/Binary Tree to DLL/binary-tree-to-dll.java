@@ -149,27 +149,52 @@ class Node
 
 class Solution
 {
-    Node head=null;
-    Node tail=null;
+    public  static void ino(ArrayList<Node> al, Node root){
+        if(root==null) return ;
+        ino(al, root.left);
+        al.add(root);
+        ino(al, root.right);
+    }
     //Function to convert binary tree to doubly linked list and return it.
     Node bToDLL(Node root)
     {
-	//  Your code here
-		    if(root==null)return null;
-	    bToDLL(root.left);
-	    Node new_node=new Node(root.data);
-	    if(head==null)
-	    {
-	        head=new_node;
-	        tail=new_node;
-	    }
-	    else 
-	    {
-	        tail.right=new_node;
-	        new_node.left=tail;
-	        tail=new_node;
-	    }
-	    bToDLL(root.right);
-	    return head;
+// 	//  Your code here
+// 		    if(root==null)return null;
+// 	    bToDLL(root.left);
+// 	    Node new_node=new Node(root.data);
+// 	    if(head==null)
+// 	    {
+// 	        head=new_node;
+// 	        tail=new_node;
+// 	    }
+// 	    else 
+// 	    {
+// 	        tail.right=new_node;
+// 	        new_node.left=tail;
+// 	        tail=new_node;
+// 	    }
+// 	    bToDLL(root.right);
+// 	    return head;
+      
+         ArrayList<Node> al=new ArrayList<>();
+         ino(al,root);
+         Node ans=al.get(0);
+         Node cur=ans;
+         if(al.size()==1) return root;
+         for(int i=0;i<al.size();i++){
+             if(i==0){
+                 al.get(i).left=null;
+                 al.get(i).right=al.get(i+1);
+             }
+            else if(i==al.size()-1){
+                al.get(i).right=null;
+                al.get(i).left=al.get(i-1);
+            }
+            else {
+            al.get(i).left=al.get(i-1);
+            al.get(i).right=al.get(i+1);
+            }
+         }
+          return al.get(0);
     }
 }
