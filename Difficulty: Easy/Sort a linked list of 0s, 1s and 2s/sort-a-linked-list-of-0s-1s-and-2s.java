@@ -31,34 +31,63 @@ class Node
 class Solution {
     // Function to sort a linked list of 0s, 1s and 2s.
     static Node segregate(Node head) {
-        // add your code here
+//         // add your code here
+//          Node temp=head;
+//         int count0=0;
+//         int count1=0;
+//         int count2=0;
+//         while(temp!=null){
+//             if(temp.data==0) count0++;
+//             else if(temp.data==1) count1++;
+//             else count2++;
+//             temp=temp.next;
+//         }
+//         temp=head;
+//         while(temp!=null){
+//             if(count0!=0){
+//             temp.data=0;
+//             count0--;
+//             }
+//             else if(count1!=0){
+//                 temp.data=1;
+//             count1--;
+//             }
+//             else{
+//                 temp.data=2;
+//             count2--;
+//             }
+//             temp=temp.next;
+//         }
+// return head;
+ if(head==null) return head;
+         Node zeronode=new Node(-1);
+         Node onenode=new Node(-1);
+         Node twonode=new Node(-1);
+
+         Node zero=zeronode;
+         Node one=onenode;
+         Node two=twonode;
          Node temp=head;
-        int count0=0;
-        int count1=0;
-        int count2=0;
-        while(temp!=null){
-            if(temp.data==0) count0++;
-            else if(temp.data==1) count1++;
-            else count2++;
-            temp=temp.next;
-        }
-        temp=head;
-        while(temp!=null){
-            if(count0!=0){
-            temp.data=0;
-            count0--;
+         while(temp!=null){
+            if(temp.data==0){
+                zero.next=temp;
+                zero=zero.next;
             }
-            else if(count1!=0){
-                temp.data=1;
-            count1--;
+            else if(temp.data==1){
+                one.next=temp;
+                one=one.next;
             }
             else{
-                temp.data=2;
-            count2--;
+                two.next=temp;
+                two=two.next;
             }
             temp=temp.next;
-        }
-return head;
+         }
+         zero.next = (onenode.next != null) ? onenode.next : twonode.next;
+         one.next=twonode.next;
+         two.next=null;
+         Node newnode=zeronode.next;
+         return newnode; 
     }
 }
     
