@@ -35,19 +35,21 @@ class Solution
     public static long[] nextLargerElement(long[] arr, int n)
     { 
         // Your code here
-            long[] result = new long[n];
-        Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < n; i++) {  
-            result[i] = -1;  
-        } 
-        for(int i=0;i<n;i++){
-            while (!stack.isEmpty() && arr[stack.peek()] < arr[i]) {  
-                int index = stack.pop();  
-                result[index] = arr[i]; // Update the result for that index  
-            }  
-            // Push the current index onto the stack  
-            stack.push(i);
-        }
-        return result;
+    long res[]=new long[n];
+    Stack<Integer> st=new Stack<>();
+    for(int i=arr.length-1;i>=0;i--){
+    while(!st.isEmpty() && arr[st.peek()]<=arr[i] ){
+        st.pop();
+    }
+    if(st.isEmpty()){
+        res[i]=-1;
+       }
+    else{
+       
+     res[i]=arr[st.peek()];   
+    }
+        st.push(i);
+      }
+      return res;
     } 
 }
