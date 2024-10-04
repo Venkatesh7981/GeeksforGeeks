@@ -24,22 +24,16 @@ this function*/
 class Solution {
     long floorSqrt(long n) {
         // Your code here
-        if(n==0 || n==1) return n;
-        long res=0;
         long low=1;
         long high=n;
         while(low<=high){
-            long mid=(low+high)/2;
-            long m=mid*mid;
-            if(m==n) return mid;
-            else if(m<n){
+            long mid=low+(high-low)/2;
+            long val=mid*mid;
+            if(val<=n){
                 low=mid+1;
-                res=mid;
             }
-            else {
-                high=mid-1;
-            }
+            else high=mid-1;
         }
-        return res;
+        return high;
     }
 }
