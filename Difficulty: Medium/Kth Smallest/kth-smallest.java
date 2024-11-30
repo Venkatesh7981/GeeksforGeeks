@@ -31,6 +31,7 @@ class GFG {
             int key = Integer.parseInt(in.readLine().trim());
             Solution ob = new Solution();
             out.println(ob.kthSmallest(arr, key));
+            out.println("~");
         }
         out.flush();
     }
@@ -45,9 +46,6 @@ class Solution {
     public static int kthSmallest(int[] arr, int k) {
         // Your code here
         Arrays.sort(arr);
-        for(int i=1;i<=arr.length;i++){
-            if(i==k) return arr[k-1];
-        }
-        return -1;
+        return arr[k-1];
     }
 }
