@@ -11,17 +11,17 @@ class GFG {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
         while (t-- > 0) {
-            String str = br.readLine();
-            String s1 = str.split(" ")[0];
-            String s2 = str.split(" ")[1];
+            String s1 = br.readLine(); // first string
+            String s2 = br.readLine(); // second string
 
             Solution obj = new Solution();
 
-            if (obj.isAnagram(s1, s2)) {
-                System.out.println("YES");
+            if (obj.areAnagrams(s1, s2)) {
+                System.out.println("true");
             } else {
-                System.out.println("NO");
+                System.out.println("false");
             }
+            System.out.println("~");
         }
     }
 }
@@ -30,15 +30,16 @@ class GFG {
 
 class Solution {
     // Function is to check whether two strings are anagram of each other or not.
-    public static boolean isAnagram(String a, String b) {
+    public static boolean areAnagrams(String s1, String s2) {
 
         // Your code here
-        if(a.length()!=b.length()) 
-        return false;
-        char arr[]=a.toCharArray();
-        char arr2[]=b.toCharArray();
+        if(s1.length()!=s2.length()){
+            return false;
+        }
+        char arr[]=s1.toCharArray();
+        char arr1[]=s2.toCharArray();
         Arrays.sort(arr);
-        Arrays.sort(arr2);
-        return Arrays.equals(arr,arr2)? true:false;
+        Arrays.sort(arr1);
+        return Arrays.equals(arr,arr1)?true:false;
     }
 }
