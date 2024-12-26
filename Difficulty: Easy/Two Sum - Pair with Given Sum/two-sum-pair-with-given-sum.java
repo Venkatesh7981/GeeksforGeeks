@@ -38,11 +38,10 @@ public class Main {
 class Solution {
     boolean twoSum(int arr[], int target) {
         // code here
-        for(int i=0;i<arr.length;i++){
-            for(int j=i+1; j<arr.length; j++){
-
-            if(arr[i]+arr[j]==target) return true;
-        }
+          HashMap<Integer,Integer> mm = new HashMap<>();
+        for(int x:arr){
+            if(mm.get(target-x)!=null)return true;
+            mm.put(x,1);
         }
         return false;
     }
