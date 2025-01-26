@@ -82,9 +82,9 @@ class GFG {
                 System.out.println("false");
             else
                 System.out.println("true");
-        
-System.out.println("~");
-}
+
+            System.out.println("~");
+        }
     }
 }
 
@@ -103,7 +103,6 @@ class Solution {
     // Function to remove a loop in the linked list.
     public static void removeLoop(Node head) {
         // code here
-        // remove the loop without losing any nodes
           if(head == null){
             return;
         }
