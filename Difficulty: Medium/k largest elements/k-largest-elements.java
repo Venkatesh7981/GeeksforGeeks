@@ -7,24 +7,19 @@ import java.util.HashMap;
 
 // } Driver Code Ends
 class Solution {
-
-    // Function to find the first negative integer in every window of size k
-    static List<Integer> kLargest(int arr[], int k) {
-        // write code here
-        int n=arr.length;
-         int[]arr1=new int[k];
+    public ArrayList<Integer> kLargest(int[] arr, int k) {
+        // Your code here
+          ArrayList<Integer> list=new ArrayList<>();
         Arrays.sort(arr);
-        arr1[0]=arr[n-1];
-        for(int i=0;i<k;i++){
-            arr1[i]=arr[n-i-1];
+        int n=arr.length;
+        for(int i=n-1;i>=n-k;i--){
+            //if(i<0) break;
+            list.add(arr[i]);
         }
-        List<Integer> ans=new ArrayList<>();
-        for(int num:arr1){
-            ans.add(num);
-        }
-        return ans;
+        return list;
     }
 }
+
 
 //{ Driver Code Starts.
 public class Main {
@@ -52,7 +47,7 @@ public class Main {
             int k = Integer.parseInt(br.readLine());
             // Create Solution object and find closest sum
             Solution ob = new Solution();
-            List<Integer> ans = ob.kLargest(arr, k);
+            ArrayList<Integer> ans = ob.kLargest(arr, k);
 
             // Print the result as a space-separated string
             for (int num : ans) {
