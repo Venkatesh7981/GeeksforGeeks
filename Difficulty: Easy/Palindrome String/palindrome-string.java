@@ -1,39 +1,22 @@
-//{ Driver Code Starts
-//Initial Template for Java
-
-import java.io.*;
-import java.util.*;
-
-class GFG {
-    public static void main(String args[]) throws IOException {
-        BufferedReader read =
-            new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-        while (t-- > 0) {
-            String S = read.readLine();
+class Solution {
+    boolean isPalindrome(String st) {
+        // code here
+        // int n=st.length();
+        // for(int i=0;i<n/2;i++){
+        //     if(st.charAt(i)==st.charAt(n-i-1)){
+        //         return true;
+                
+        //     }
             
-            Solution ob = new Solution();
-            System.out.println(ob.isPalindrome(S));
+        // }
+        // return false;
+        int left=0;
+        int right=st.length()-1;
+        while(left<=right){
+            if(st.charAt(left)!=st.charAt(right)) return false;
+            left++;
+            right--;
         }
+        return true;
     }
 }
-// } Driver Code Ends
-
-
-//User function Template for Java
-
-class Solution {
-    int isPalindrome(String S) {
-        // code here
-        int i=0,j=S.length()-1;
-        while(i<j){
-            char ch1=S.charAt(i);
-            char ch2=S.charAt(j);
-            if(ch1!=ch2){
-                return 0;
-            }
-            i++;j--;
-        }
-        return 1;
-    }
-};
