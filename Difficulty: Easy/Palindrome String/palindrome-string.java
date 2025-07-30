@@ -10,13 +10,17 @@ class Solution {
             
         // }
         // return false;
-        int left=0;
-        int right=st.length()-1;
-        while(left<=right){
-            if(st.charAt(left)!=st.charAt(right)) return false;
-            left++;
-            right--;
-        }
-        return true;
+        // int left=0;
+        // int right=st.length()-1;
+        // while(left<=right){
+        //     if(st.charAt(left)!=st.charAt(right)) return false;
+        //     left++;
+        //     right--;
+        // }
+        // return true;
+          if(st==null){
+              return false;
+          }
+          return st.equals(new StringBuilder(st).reverse().toString());
     }
 }
