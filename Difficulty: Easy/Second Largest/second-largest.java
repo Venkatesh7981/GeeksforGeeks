@@ -1,21 +1,21 @@
 class Solution {
     public int getSecondLargest(int[] arr) {
         // code here
-        int l=arr[0];
-        int sl=Integer.MIN_VALUE;
-        for(int num:arr){
-            if(num>l){
-                sl=l;
-                l=num;
-            }
-            else if(num<l && num>sl){
-                sl=num;
-            }
-            else {
-                continue;
+        int n = arr.length;
+
+        int largest = -1, secondLargest = -1;
+
+        // Finding the largest element
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > largest)
+                largest = arr[i];
+        }
+        
+        for(int j=0;j<n;j++){
+            if(arr[j]>secondLargest && arr[j]!=largest){
+              secondLargest=arr[j];   
             }
         }
-        if(sl<0) return -1;
-        return sl;
+        return secondLargest;
     }
 }
