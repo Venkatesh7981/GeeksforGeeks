@@ -1,12 +1,8 @@
-import java.util.*;
 class Solution {
-    boolean isPalindrome(String st) {
+    boolean isPalindrome(String s) {
         // code here
-                  if(st==null){
-              return false;
-          }
-    
-          return st.equals(new StringBuilder(st).reverse().toString());
-
+        StringBuilder st=new StringBuilder(s);
+         String rev=st.reverse().toString();
+       return s.equals(rev);
     }
 }
