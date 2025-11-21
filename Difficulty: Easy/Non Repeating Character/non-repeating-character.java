@@ -1,19 +1,15 @@
 class Solution {
     public char nonRepeatingChar(String s) {
         // code here
-      Map<Character,Integer> sp=new HashMap();
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            sp.put(ch,sp.getOrDefault(ch,0)+1);
-            
+        int arr[]=new int[256];
+        for(char c:s.toCharArray()){
+             arr[c-'a']++;
         }
-        for(int i=0;i<s.length();i++){
-            char ch=s.charAt(i);
-            if(sp.get(ch)==1){
-                return ch;
-            }
-        }
-        return '$';
-        
+         for(char c:s.toCharArray()){
+             if(arr[c-'a']==1)
+             return c;
+         }
+         return '$';
+
     }
 }
