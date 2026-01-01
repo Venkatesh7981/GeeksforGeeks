@@ -1,9 +1,8 @@
 class Solution {
     public static int largest(int[] arr) {
         // code here
-        int max=0;
-        int n=arr.length;
-        for(int i=0;i<n;i++){
+        int max=arr[0];
+        for(int i=0;i<arr.length;i++){
             if(arr[i]>max){
                 max=arr[i];
             }
